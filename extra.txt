@@ -1,5 +1,0 @@
-I chose single column layout because screen readers read linearly, so im matching visual and reading order with my intended workflow.
-
-OCR mode is my personilisation, letting users choose betwene structured code or plain text based on their screen reader preference.
-
-The design shows client sided validation for entering invalid input into timestamp field
