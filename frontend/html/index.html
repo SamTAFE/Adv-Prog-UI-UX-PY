@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en" class="scroll-smooth">
+    <head>
+        <title>Code extractor</title>
+        <meta name="description" content="Advanced programming UI/UX project">
+<!--        <link rel="icon" href="/assets/logo.png" type="image/png">-->
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+        <link rel="stylesheet" href="../css/output.css">
+
+        <script src="../js/main.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body class="bg-zinc-100 min-h-dvh flex flex-col gap-4 mb-5">
+        <div class="bg-red-600 h-20 flex flex-row justify-between items-center px-5 border-b border-red-700">
+            <h1 class="text-white font-extrabold text-2xl">Code extractor</h1>
+            <button id="shortcuts" class="duration-200 hover:-translate-y-0.5 active:scale-90 bg-red-500 border border-red-700 rounded-md px-2 py-1 text-white font-bold text-base">
+                Shortcuts
+            </button>
+        </div>
+
+        <div class="flex flex-col gap-4 px-4">
+            <div class="flex flex-row items-center gap-1 w-full">
+                <label for="video" class="text-black font-bold text-lg">Selected video:</label>
+                <select id="video" class="text-base text-black font-medium rounded-md bg-white p-1 border border-zinc-400">
+                    <option value="">Select a video...</option>
+                </select>
+            </div>
+
+            <div class="flex flex-row items-center gap-1 w-full">
+                <label for="timestamp" class="text-black font-bold text-lg">Timestamp:</label>
+                <input type="text" id="timestamp" placeholder="mm:ss" class="placeholder-zinc-700 text-black font-medium rounded-md p-1 bg-white border border-zinc-400">
+                <span id="max-duration" class="text-black font-medium text-base">Max ??:??</span>
+                <span id="timestamp-error" aria-live="polite" class="text-red-800 area font-medium text-base"></span>
+            </div>
+
+            <div class="flex flex-col items-start gap-1 w-full">
+                <span class="text-black font-bold text-lg">OCR Mode</span>
+                <div class="flex flex-row gap-1 items-center">
+                    <input type="radio" id="structured" value="structured" name="ocr-mode" checked>
+                    <label for="structured" class="text-black font-medium text-base">Keep structure</label>
+                </div>
+                <div class="flex flex-row gap-1 items-center">
+                    <input type="radio" id="unstructured" value="unstructured" name="ocr-mode">
+                    <label for="unstructured" class="text-black font-medium text-base">Restructure</label>
+                </div>
+            </div>
+
+            <button id="extract-frame" class="duration-200 bg-red-700 border border-red-800 rounded-md px-2 py-1 text-zinc-100 font-bold text-base">
+                Extract frame
+            </button>
+
+            <h2 class="text-black font-extrabold text-2xl">Frame preview</h2>
+            <img id="frame" alt="preview of extracted frame" class="rounded-md w-full h-auto bg-black text-white font-bold text-xl text-center" src="">
+
+            <h2 class="text-black font-extrabold text-2xl">Extracted text</h2>
+            <button id="copy-code" class="duration-200 bg-red-700 border border-red-800 rounded-md px-2 py-1 text-zinc-100 font-bold text-base">
+                Copy
+            </button>
+
+            <pre class="rounded-md w-full h-auto bg-black text-white font-medium text-base"><code id="extracted" class="w-full h-full">Press "Extract Frame" to see code</code></pre>
+        </div>
+
+        <div id="overlay" class="hidden w-dvw h-dvh absolute z-99 backdrop-blur-sm bg-black/50 flex items-center justify-center">
+            <div class="rounded-md w-[50%] h-auto p-1 bg-zinc-100 border-zinc-700 border">
+                <span class="text-black font-bold text-lg">
+                    Copy extracted text: "Command + C" OR "Ctrl + C"
+                    Extract frame: "Command + E" OR "Ctrl + E"
+                </span>
+                <button id="close" class="mt-5 w-full duration-200 hover:-translate-y-0.5 active:scale-90 bg-red-500 border border-red-700 rounded-md px-2 py-1 text-white font-bold text-base">
+                    Close menu
+                </button>
+            </div>
+        </div>
+    </body>
+</html>
